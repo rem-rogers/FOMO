@@ -1,0 +1,68 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <div class="error">
+        <h3>This site is undergoing improvements, please be patient with the limited functionality</h3>
+    </div>
+
+    <head>
+
+        <title>FOMO</title>
+
+        ## add any site-wide scripts or CSS here; for example, jquery:
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="${ STATIC_URL }homepage/media/bootstrap/js/bootstrap.js/bootstrap.min.js"></script>
+<%doc>
+        <link href="${ STATIC_URL }homepage/media/bootstrap/css/bootstrap-theme.css">
+</%doc>
+        <link href="${ STATIC_URL }homepage/media/bootstrap/css/bootswatch.min.css" rel="stylesheet">
+        <link href="${ STATIC_URL }homepage/media/css/stylesheet.css" rel="stylesheet">
+
+        <script src="/django_mako_plus/dmp-common.min.js"></script>
+        ${ django_mako_plus.links(self) }
+    </head>
+
+    <body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> <img src="${ STATIC_URL }homepage/media/images/music.png"> </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${ STATIC_URL } homepage/templates/about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${ STATIC_URL } homepage/templates/faq.html">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${ STATIC_URL } homepage/templates/sections.html">Sections</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<br>
+  <br>
+  <br>
+
+    <main>
+        <%block name="content">
+        site content goes in here
+        </%block>
+    </main>
+    </body>
+<%doc><footer>
+    <h4 class-="utc-time">The current time in the US is ${ utc_time } </h4>
+
+</footer></%doc>
+</html>
