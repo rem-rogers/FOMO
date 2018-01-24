@@ -16,8 +16,6 @@
 .section
 {
     position: relative;
-
-
 }
 
 .right_section
@@ -26,16 +24,17 @@
     top: 0;
     right: 0;
     height: 300px;
-    width: 240px;
+    width: 300px;
     background-color: #2aaacf;
 
 }
 
 .middle_section
 {
+    margin-left: 300px;
+    margin-right: 300px;
     background-color: #2b542c;
     height: 300px;
-
 }
 
 .left_section
@@ -43,7 +42,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 240px;
+    width: 300px;
     background-color: #2f6473;
     height: 300px;
 
@@ -56,3 +55,6 @@
     width: 100%;
     height: 150px;
 }
+
+
+
