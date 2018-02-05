@@ -1,0 +1,67 @@
+- model: contenttypes.contenttype
+  pk: 1
+  fields: {app_label: admin, model: logentry}
+- model: contenttypes.contenttype
+  pk: 2
+  fields: {app_label: auth, model: permission}
+- model: contenttypes.contenttype
+  pk: 3
+  fields: {app_label: auth, model: group}
+- model: contenttypes.contenttype
+  pk: 4
+  fields: {app_label: contenttypes, model: contenttype}
+- model: contenttypes.contenttype
+  pk: 5
+  fields: {app_label: sessions, model: session}
+- model: contenttypes.contenttype
+  pk: 6
+  fields: {app_label: cuser, model: group}
+- model: contenttypes.contenttype
+  pk: 7
+  fields: {app_label: account, model: user}
+- model: sessions.session
+  pk: zrf07bs1ba4pbr0dy08nq0azy75a2ocv
+  fields: {session_data: NjU1YzY2YjE1NTQ1YTM5ZWU3NzYwNTA5MTdlOGViYjRkMGYyOGVkYjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzOTM5Njk4NGE3MTcyYzVkODllN2ZkNTBmNTgzZTNiYzA4ODA5YWYyIn0=,
+    expire_date: !!timestamp '2018-02-13 05:34:53.203656+00:00'}
+- model: auth.permission
+  pk: 10
+  fields: {name: can add user, content_type: 1, codename: add_user}
+- model: auth.permission
+  pk: 20
+  fields: {name: Can delete user, content_type: 2, codename: delete_user}
+
+- model: auth.group
+  pk: 1
+  fields:
+    name: Customer Support
+    permissions: [10, 20]
+- model: auth.group
+  pk: 2
+  fields:
+    name: Sales
+    permissions: [10]
+- model: account.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$100000$Z4JrXT0phDdt$Gb+8vW16Pso6rslv7sNjHpz9TlUiBsVcViDFmnN649Q=
+    last_login: 2018-01-30 05:34:53.200395+00:00
+    is_superuser: true
+    email: homer@simpsons.com
+    first_name: Homer
+    last_name: Simpson
+    is_staff: true
+    is_active: true
+    date_joined: 2018-01-30 05:02:22.861469+00:00
+    salary: null
+    birthdate: null
+    address: 742 Evergreen Terrace
+    city: Springfield
+    state: null
+    zip: null
+    groups: []
+    user_permissions: []
+- model: admin.logentry
+  pk: 1
+  fields: {action_time: !!timestamp '2018-01-31 17:22:06.323799+00:00', user: 1, content_type: 3,
+    object_id: '1', object_repr: Customer Support, action_flag: 1, change_message: '[{"added":
+      {}}]'}
