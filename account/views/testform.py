@@ -16,11 +16,21 @@ def process_request(request):
         'form': form,
     }
 
-    return request.dmp_render('testform.htm', context)
+    return request.dmp_render('testform.html', context)
 
 
 
 
 class TestForm(forms.Form):
-    fav_ice_cream = forms.CharField(label='Favorite Ice Cream')
-    renewal_date = forms.CharField(label='Renewal', help_text="Enter a date between now and 4 weeks (default3).")
+
+    def init(self):
+        self.fields['fav_ice_cream'] = forms.CharField(label='Favorite Ice Cream')
+        self.fields['age'] = forms.IntegerFieldField(label='Age')
+        self.fields['renewal_date'] = forms.CharField(label='Renewal', help_text="Enter a date between now and 4 weeks (default3).")
+
+    @property
+    def clean_age(self):
+        age = self.cleaned_data.get('age')
+        if age < 18:
+            print('too young') #don't allow sign up
+        return age
