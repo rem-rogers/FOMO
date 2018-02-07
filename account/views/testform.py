@@ -21,7 +21,7 @@ def process_request(request):
 
 
 
-class TestForm(forms.Form):
+class TestForm(Formless):
 
     def init(self):
         self.fields['fav_ice_cream'] = forms.CharField(label='Favorite Ice Cream')
@@ -32,5 +32,5 @@ class TestForm(forms.Form):
     def clean_age(self):
         age = self.cleaned_data.get('age')
         if age < 18:
-            print('too young') #don't allow sign up
+            raise forms.ValidationError('you are no 18, no soup for you')
         return age
