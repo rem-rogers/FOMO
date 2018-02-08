@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     'cuser',                #uses email as username field
     'homepage',
     'account',
-
-
+    'formlib',
 ]
 
 MIDDLEWARE = [
@@ -202,6 +201,14 @@ STATICFILES_DIRS = (
     BASE_DIR,
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+]
 
 
 # A logger for DMP

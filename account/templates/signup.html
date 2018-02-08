@@ -1,0 +1,16 @@
+<%inherit file="app_base.htm" />
+
+<%block name='navbar_items'>
+
+</%block>
+
+
+<%block name='content_top'>
+
+   <form action="/account/signup/" method="POST">
+        ${ csrf_input }
+        ${ form.as_p() }
+       <input type="submit" value="Submit">
+    </form>
+
+</%block>
