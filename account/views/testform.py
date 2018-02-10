@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django_mako_plus import view_function, jscontext
 from datetime import datetime, timezone
+from formlib import Formless
 
 @view_function
 def process_request(request):
@@ -32,5 +33,5 @@ class TestForm(Formless):
     def clean_age(self):
         age = self.cleaned_data.get('age')
         if age < 18:
-            raise forms.ValidationError('you are no 18, no soup for you')
+            raise forms.ValidationError('you are not 18, no soup for you')
         return age

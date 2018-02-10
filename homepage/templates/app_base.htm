@@ -1,4 +1,4 @@
-<%inherit file="base.htm" />
+<%inherit file="/homepage/templates/base.htm" />
 
 <%block name="menu">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -11,32 +11,40 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ${ 'active' if request.dmp_router_page == 'index' else ''}">
-            <a class="nav-link" href="/index/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/homepage/index/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item ${ 'active' if request.dmp_router_page == 'about' else ''}">
-            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/homepage/about/">About</a>
           </li>
           <li class="nav-item ${ 'active' if request.dmp_router_page == 'contact' else ''}">
-            <a class="nav-link" href="/contact/">Contact</a>
+            <a class="nav-link" href="/homepage/contact/">Contact</a>
           </li>
           <li class="nav-item ${ 'active' if request.dmp_router_page == 'sections' else ''}">
-            <a class="nav-link" href="/sections/">Sections</a>
+            <a class="nav-link" href="/homepage/sections/">Sections</a>
           </li>
             <li class="nav-item ${ 'active' if request.dmp_router_page == 'terms' else ''}">
-            <a class="nav-link" href="/terms/">Terms</a>
+            <a class="nav-link" href="/homepage/terms/">Terms</a>
           </li>
 
-             <li class="nav-item dropdown show">
-                <a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Log In/Sign Up</a>
-                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
-                  <a class="dropdown-item" href="#">Log In</a>
-                  <a class="dropdown-item" href="#">Sign Up</a>
+            <style>
+                 .open .dropdown-menu {
+                   display: block;
+               }
+            </style>
 
-                </div>
-             </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">${ 'View Account/Log Out' if request.user.is_authenticated else 'Log In/Sign Up'}</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="${ '#' if request.user.is_authenticated else '/account/signup'}" >${ 'View Account' if request.user.is_authenticated else 'Sign Up'}</a>
+              <a class="dropdown-item" href="${ '/homepage/logout' if request.user.is_authenticated else '/account/login'}">${ 'Log Out' if request.user.is_authenticated else 'Log in'}</a>
+             </div>
+        </li>
 
         </ul>
       </div>
   </nav>
 
+
 </%block>
+
+
