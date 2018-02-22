@@ -3,7 +3,7 @@
 <%block name='content_top'>
 
     <div >
-        <button type="button" class="btn btn-info" href="/manager/createProduct">Create Product</button>
+        <a href="/manager/createProduct"><button type="button" class="btn btn-info" >Create Product</button></a>
     </div>
 
 
@@ -19,11 +19,22 @@
             </tr>
          </thead>
          <tbody>
-             <tr class="table-active">
-                 <th scope="row">Active</th>
-                 <td>Column content</td>
-                 <td>Column content</td>
-                 <td>Column content</td>
+            %for p in products:
+                <tr class="table-active">
+                    <td>${p.category.name}</td>
+                    <td>${p.TITLE}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                    %if p.TITLE == 'Bulk Product':
+                        <td>${p.quantity}</td>
+                    %else:
+                        <td>1</td>
+                    %endif
+                    <td>
+                        <a href="/manager/editProduct/${p.id}">Edit</a>
+                        <a>Delete</a>
+                    </td>
+            %endfor
              </tr>
          </tbody>
     </table>

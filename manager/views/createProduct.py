@@ -45,8 +45,10 @@ class createProductForm(Formless):
         self.fields['reorder_trigger'] = forms.IntegerField(label="Reorder Trigger", required=False)
         self.fields['reorder_quantity'] = forms.IntegerField(label="Reorder Quantity", required=False)
 
-        #
-        self.fields['pid'] = forms.CharField(label="Product ID", required=False)
+        #individual
+        self.fields['pid'] = forms.IntegerField(label='Product ID', required=False)
+
+        #rental
         self.fields['max_rental_days'] = forms.IntegerField(label="Max Rental Days", required=False)
         self.fields['retire_date'] = forms.DateTimeField(label="Retire Date", required=False)
 

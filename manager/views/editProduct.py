@@ -11,13 +11,44 @@ from catalog import models as cmod
 from django.contrib.auth import authenticate, login
 
 @view_function
-def process_request(request):
+def process_request(request, product: cmod.Product):
+    if product.__class__.__name__ == 'BulkProduct':
+        form = editProductForm(request, initial={
+            'type': product.__class__.__name__,
+            'name': product.name,
+            'category': product.category,
+            'description': product.description,
+            'price': product.price,
+            'quantity': product.quantity,
+            'reorder_trigger': product.reorder_trigger,
+            'reorder_quantity': product.reorder_quantity,
+        })
 
-#process the form
-    form = editProductForm(request)
+    elif product.__class__.__name__ == 'IndividualProduct':
+        form = editProductForm(request, initial={
+            'type': product.__class__.__name__,
+            'name': product.name,
+            'category': product.category,
+            'description': product.description,
+            'price': product.price,
+            'pid': product.pid,
+        })
+
+    elif product.__class__.__name__ == 'RentalProduct':
+        form = editProductForm(request, initial={
+            'type': product.__class__.__name__,
+            'name': product.name,
+            'category': product.category,
+            'description': product.description,
+            'price': product.price,
+            'pid': product.pid,
+            'max_rental_days': product.max_rental_days,
+            'retire_date': product.retire_date,
+        })
+
     if form.is_valid():
         form.commit()
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/catalog/productList/')
 
 #render the template
     context = {
@@ -27,8 +58,6 @@ def process_request(request):
 
 
 class editProductForm(Formless):
-
-    Product.objects.all().filter(STATUS_CHOICES='A')
 
     def init(self):
         #product attributes
@@ -42,12 +71,80 @@ class editProductForm(Formless):
         self.fields['price'] = forms.IntegerField(label="Price")
 
         #bulk
-        self.fields['quantity'] = forms.IntegerField(label="Quantity", required="False")
-        self.fields['reorder_trigger'] = forms.IntegerField(label="Reorder Trigger", required="False")
-        self.fields['reorder_quantity'] = forms.IntegerField(label="Reorder Quantity", required="False")
+        self.fields['quantity'] = forms.IntegerField(label="Quantity", required=False)
+        self.fields['reorder_trigger'] = forms.IntegerField(label="Reorder Trigger", required=False)
+        self.fields['reorder_quantity'] = forms.IntegerField(label="Reorder Quantity", required=False)
 
-        #
-        self.fields['pid'] = forms.CharField(label="Product ID", required="False")
-        self.fields['max_rental_days'] = forms.IntegerField(label="Max Rental Days", required="False")
-        self.fields['retire_date'] = forms.DateTimeField(label="Retire Date", required="False")
+        #individual and rental
+        self.fields['pid'] = forms.CharField(label="Product ID", required=False)
+        self.fields['max_rental_days'] = forms.IntegerField(label="Max Rental Days", required=False)
+        self.fields['retire_date'] = forms.DateTimeField(label="Retire Date", required=False)
 
+    def clean(self):
+        type = self.cleaned_data.get('type')
+        if type == 'BulkProduct':
+            quantity = self.cleaned_data.get('quantity')
+            reorder_trigger = self.cleaned_data.get('reorder_trigger')
+            reorder_quantity = self.cleaned_data.get('reorder_quantity')
+            bulk = [quantity, reorder_trigger, reorder_quantity]
+            for b in bulk:
+                if b == None:
+                    raise forms.ValidationError('Field is required')
+            return self.cleaned_data
+        elif type == 'IndividualProduct':
+            pid = self.cleaned_data.get('pid')
+            if pid is None:
+                raise forms.ValidationError('Field is required')
+            return self.cleaned_data
+        elif type == 'RentalProduct':
+            pid = self.cleaned_data.get('pid')
+            max_rental_days = self.cleaned_data.get('max_rental_days')
+            retire_date = self.cleaned_data.get('retire_date')
+            rentals = [pid, max_rental_days, retire_date]
+            for r in rentals:
+                if r == None:
+                    raise forms.ValidationError('Field is required')
+            return self.cleaned_data
+
+    def commit(self):
+        type = self.cleaned_data.get('type')
+        if self.type == 'BulkProduct':
+            self.product = cmod.BulkProduct()
+            self.product.create_date = self.cleaned_data.get('created_date')
+            self.product.last_modified = self.cleaned_data.get('last_modified')
+            self.product.name = self.cleaned_data.get('name')
+            self.product.description = self.cleaned_data.get('description')
+            self.product.status = self.cleaned_data.get('status')
+            self.product.category = self.cleaned_data.get('category')
+            self.product.price = self.cleaned_data.get('price')
+            #unique
+            self.product.quantity = self.cleaned_data.get('quantity')
+            self.product.reorder_trigger = self.cleaned_data.get('reorder_trigger')
+            self.product.reorder_quantity = self.cleaned_data.get('reorder_quantity')
+
+        elif self.type == 'IndividualProduct':
+            self.product = cmod.IndividualProduct()
+            self.product.create_date = self.cleaned_data.get('created_date')
+            self.product.last_modified = self.cleaned_data.get('last_modified')
+            self.product.name = self.cleaned_data.get('name')
+            self.product.description = self.cleaned_data.get('description')
+            self.product.status = self.cleaned_data.get('status')
+            self.product.category = self.cleaned_data.get('category')
+            self.product.price = self.cleaned_data.get('price')
+            #unique
+            self.product.pid = self.cleaned_data.get('pid')
+
+        elif self.type == 'RentalProduct':
+            self.product = cmod.RentalProduct()
+            self.product.create_date = self.cleaned_data.get('created_date')
+            self.product.last_modified = self.cleaned_data.get('last_modified')
+            self.product.name = self.cleaned_data.get('name')
+            self.product.description = self.cleaned_data.get('description')
+            self.product.status = self.cleaned_data.get('status')
+            self.product.category = self.cleaned_data.get('category')
+            self.product.price = self.cleaned_data.get('price')
+            #unique
+            self.product.pid = self.cleaned_data.get('pid')
+            self.product.max_rental_days = self.cleaned_data.get('max_rental_days')
+            self.product.retire_date = self.cleaned_data.get('retire_date')
+        self.product.save()
