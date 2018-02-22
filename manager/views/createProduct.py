@@ -19,39 +19,47 @@ def process_request(request):
     form = createProductForm(request)
     if form.is_valid():
         form.commit()
-        return HttpResponseRedirect('#')
+        return HttpResponseRedirect('/')
 
 #render the template
     context = {
         'form': form,
     }
-    return request.dmp_render('#', context)
+    return request.dmp_render('createProduct.html', context)
 
 
 class createProductForm(Formless):
 
     def init(self):
         #product attributes
-        type = forms.ChoiceField(choices=Product.TYPE_CHOICES, label="Type")
-        status = forms.ChoiceField(choices=Product.STATUS_CHOICES, label='Status')
-        name = forms.CharField(label="Name")
-        description = forms.CharField()
-        category = forms.ModelChoiceField(
+        self.fields['type'] = forms.ChoiceField(choices=Product.TYPE_CHOICES, label="Type")
+        self.fields['status'] = forms.ChoiceField(choices=Product.STATUS_CHOICES, label='Status')
+        self.fields['name'] = forms.CharField(label="Name", required=True)
+        self.fields['description'] = forms.CharField(labe="description", required=True)
+        self.fields['category'] = forms.ModelChoiceField(
             queryset=cmod.Category.objects.all(),
             label="category")
-        price = forms.IntegerField(label="Price")
-        quantity = forms.IntegerField(label="Quantity", required="False")
-        reorder_trigger = forms.IntegerField(label="Reorder Trigger", required="False")
-        reorder_quantity = forms.IntegerField(label="Reorder Quantity", required="False")
-        pid = forms.CharField(label="Product ID", required="False")
-        max_rental_days = forms.IntegerField(Label="Max Rental Days", required="False")
-        retire_date = forms.DateTimeField(label="Retire Date", required="False")
-        created_date = forms.DateTimeField(label="Created Date")
-        last_modified = forms.DateTimeField(label="Last Modified")
+        self.fields['price'] = forms.IntegerField(label="Price")
 
+        #bulk
+        self.fields['quantity'] = forms.IntegerField(label="Quantity", required="False")
+        self.fields['reorder_trigger'] = forms.IntegerField(label="Reorder Trigger", required="False")
+        self.fields['reorder_quantity'] = forms.IntegerField(label="Reorder Quantity", required="False")
 
+        #
+        self.fields['pid'] = forms.CharField(label="Product ID", required="False")
+        self.fields['max_rental_days'] = forms.IntegerField(label="Max Rental Days", required="False")
+        self.fields['retire_date'] = forms.DateTimeField(label="Retire Date", required="False")
 
-
+    def clean(self):
+        type = self.cleaned_data.get('type')
+        if type == 'bulk product':
+            quantity = self.cleaned_data.get('quantity')
+            reorder_trigger = self.cleaned_data.get('reorder_trigger')
+            reorder_quantity = self.cleaned_data.get('reorder_quantity')
+        else if type == 'Individual Product':
+            pid = self.cleaned_data.get('pid')
+        else if
 
 
 
