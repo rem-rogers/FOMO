@@ -69,17 +69,11 @@ class signUpForm(Formless):
 
     def clean_password(self):
         password = self.cleaned_data.get('password')
-        num = re.search('\d')
+        num = re.search('\d', password)
         if len(password) < 8 or num is None:
             raise forms.ValidationError('Password must be 8 characters or longer and contain a number')
         return password
 
-    def clean_passwordMatch(self):
-        p1 = self.cleaned_data.get('password')
-        p2 = self.cleaned_data.get('password2')
-        if p1 != p2:
-            raise forms.ValidationError('Please ensure the passwords match')
-        return self.cleaned_data
 
     def commit(self):
         newuser = amod.User()
@@ -97,7 +91,12 @@ class signUpForm(Formless):
         return self.cleaned_data
         login(self.request, self.user)
 
-    # def clean(self):
+    def clean(self):
+         p1 = self.cleaned_data.get('password')
+         p2 = self.cleaned_data.get('password2')
+         if p1 != p2:
+            raise forms.ValidationError('Please ensure the passwords match')
+         return self.cleaned_data
     #     self.user.authenticate(email=self.cleaned_data.get('email'), password=self.cleaned_data.get('password'))
     #     return self.cleaned_data
 
