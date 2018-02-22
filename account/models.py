@@ -12,5 +12,5 @@ class User(AbstractCUser):
    state = models.TextField(null=True, blank=True)
    zip = models.TextField(null=True, blank=True)
 
-   def get_purcases(self):
+   def get_purchases(self):
       return ['Roku', 'kindle fire']

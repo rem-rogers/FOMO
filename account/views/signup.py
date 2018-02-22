@@ -29,7 +29,7 @@ def process_request(request):
 class signUpForm(Formless):
 
     def init(self):
-        self.fields['email'] = forms.CharField(label='Email', required=True)
+        self.fields['create_date'] = forms.CharField(label='createDate', required=True)
         self.fields['first_name'] = forms.CharField(label='First Name', required=True)
         self.fields['last_name'] = forms.CharField(label='last Name', required=True)
         self.fields['address'] = forms.CharField(label='Address', required=True)
@@ -69,7 +69,7 @@ class signUpForm(Formless):
 
     def clean_password(self):
         password = self.cleaned_data.get('password')
-        num = re.search('\d')
+        num = re.search('\d', password)
         if len(password) < 8 or num is None:
             raise forms.ValidationError('Password must be 8 characters or longer and contain a number')
         return password
