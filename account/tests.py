@@ -69,7 +69,6 @@ class UserClassTest(TestCase):
         self.assertTrue(self.u2.has_perm('admin.add_user'))
 
 
-
     def test_user_permission(self):
         """Test to make sure user receive permissions correctly"""
         p = Permission()
@@ -79,6 +78,3 @@ class UserClassTest(TestCase):
         p.save()
         self.u1.user_permissions.add(p)
         self.assertTrue(self.u1.has_perm('admin.change_product_price'))
-
-
-

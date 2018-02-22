@@ -3,3 +3,5 @@
 __pycache__/
 .cached_templates/
 venv/
+.idea/workspace.xml
+
