@@ -1,28 +1,31 @@
 <%inherit file="app_base.htm" />
 
-<!DOCTYPE html>
-<html lang="en">
+<%block name='content_top'>
 
-<body>
     <div >
         <button type="button" class="btn btn-info" href="/manager/createProduct">Create Product</button>
     </div>
 
-    <table>
+
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Category</th>
                 <th>Type</th>
-                <th>Name</th
+                <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        <!-- For Loop for each product -->
-        </tbody>
-
+         </thead>
+         <tbody>
+             <tr class="table-active">
+                 <th scope="row">Active</th>
+                 <td>Column content</td>
+                 <td>Column content</td>
+                 <td>Column content</td>
+             </tr>
+         </tbody>
     </table>
-</body>
-</html>
+</%block>
+
