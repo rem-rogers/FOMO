@@ -20,3 +20,17 @@ main {
     margin: 0;
     padding: 15px;
 }
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.forms{
+    align: center;
+    padding-left: 40px;
+    width: 40%;
+}
+
+.header{
+    padding: 40px;
+}

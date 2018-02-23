@@ -29,7 +29,16 @@ def process_request(request):
 class signUpForm(Formless):
 
     def init(self):
-        self.fields['create_date'] = forms.CharField(label='createDate', required=True)
+        # self.fields['create_date'] = forms.CharField(label='createDate', required=True)
+        # self.fields['first_name'] = forms.CharField(label='First Name', required=True)
+        # self.fields['last_name'] = forms.CharField(label='last Name', required=True)
+        # self.fields['address'] = forms.CharField(label='Address', required=True)
+        # self.fields['city'] = forms.CharField(label='City', required=True)
+        # self.fields['state'] = forms.CharField(label='State', required=True)
+        # self.fields['zip'] = forms.CharField(label='Zip', required=True)
+        # self.fields['password'] = forms.CharField(label='Enter Password', widget=forms.PasswordInput, required=True)
+        # self.fields['password2'] = forms.CharField(label='Confirm Password', widget=forms.PasswordInput, required=True)
+        self.fields['email'] = forms.EmailField(label='Email', required=True)
         self.fields['first_name'] = forms.CharField(label='First Name', required=True)
         self.fields['last_name'] = forms.CharField(label='last Name', required=True)
         self.fields['address'] = forms.CharField(label='Address', required=True)
@@ -84,6 +93,8 @@ class signUpForm(Formless):
     def commit(self):
         newuser = amod.User()
         newuser.email = self.cleaned_data.get('email')
+        newuser.first_name = self.cleaned_data.get('first_name')
+        newuser.last_name = self.cleaned_data.get('last_name')
         newuser.set_password(self.cleaned_data.get('password'))
         newuser.address = self.cleaned_data.get('address')
         newuser.city = self.cleaned_data.get('city')
@@ -94,12 +105,6 @@ class signUpForm(Formless):
 
         if self.user is None:
             raise forms.ValidationError('Invalid email or Password')
+        else :
+            login(self.request, self.user)
         return self.cleaned_data
-        login(self.request, self.user)
-
-    # def clean(self):
-    #     self.user.authenticate(email=self.cleaned_data.get('email'), password=self.cleaned_data.get('password'))
-    #     return self.cleaned_data
-
-
-

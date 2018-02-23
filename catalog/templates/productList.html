@@ -2,9 +2,8 @@
 
 <%block name='content_top'>
 
-    <div >
-        <a href="/manager/createProduct"><button type="button" class="btn btn-info" >Create Product</button></a>
-    </div>
+      <h1 class="display-3">Product List</h1>
+      <p class="lead">Current products are listed below. You may choose to edit or delete these products using the approriate link in the table</p><br>
 
 
     <table class="table table-hover">
@@ -36,8 +35,11 @@
                     </td>
                 </tr>
             %endfor
-
          </tbody>
-    </table>
+    </table><br><hr class="my-4">
+    <div >
+        <a href="/manager/createProduct"><button type="button" class="btn btn-secondary" >Create Product</button></a>
+    </div>
+
 </%block>
 

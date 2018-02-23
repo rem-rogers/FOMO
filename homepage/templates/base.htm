@@ -18,7 +18,6 @@
 </%doc>
         <link href="${ STATIC_URL }homepage/media/bootstrap/css/bootswatch.min.css" rel="stylesheet">
         <link href="${ STATIC_URL }homepage/styles/stylesheet.css" rel="stylesheet">
-
         <script src="/django_mako_plus/dmp-common.min.js"></script>
         ${ django_mako_plus.links(self) }
     </head>
@@ -27,55 +26,18 @@
 
 
     <%block name="menu"></%block>
-<%doc>  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-     <a class="navbar-brand" href="/index/"> <img src="${ STATIC_URL }homepage/media/images/music.png"> </a>
-
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-     </button>
-
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/index/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact/">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/sections/">Sections</a>
-          </li>
-        </ul>
-      </div>
-  </nav></%doc>
-
-
 
 <br>
-  <br>
-  <br>
 
     <main>
-        <%block name="content">
-        site content goes in here
-        </%block>
 
-        <%block name="content_top">
-
-        </%block>
-
+        <%block name="content_top"> </%block>
 
         <div class="section">
-
             <%block name="left_section">
             </%block>
-
             <%block name="middle_section">
             </%block>
-
             <%block name="right_section">
             </%block>
 
