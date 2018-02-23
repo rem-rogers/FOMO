@@ -25,7 +25,7 @@
                     <td>${p.TITLE}</td>
                     <td>${p.name}</td>
                     <td>${p.price}</td>
-                    %if p.TITLE == 'Bulk Product':
+                    %if TITLE == 'Bulk Product':
                         <td>${p.quantity}</td>
                     %else:
                         <td>1</td>
@@ -34,8 +34,9 @@
                         <a href="/manager/editProduct/${p.id}">Edit</a>
                         <a href="/manager/deleteProduct/${p.id}">Delete</a>
                     </td>
+                </tr>
             %endfor
-             </tr>
+
          </tbody>
     </table>
 </%block>
