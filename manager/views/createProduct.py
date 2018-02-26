@@ -21,7 +21,7 @@ def process_request(request):
     context = {
         'form': form,
     }
-    return request.dmp_render('createProduct.html', context)
+    return request.dmp.render('createProduct.html', context)
 
 
 class createProductForm(Formless):

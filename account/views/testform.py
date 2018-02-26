@@ -17,7 +17,7 @@ def process_request(request):
         'form': form,
     }
 
-    return request.dmp_render('testform.html', context)
+    return request.dmp.render('testform.html', context)
 
 
 
