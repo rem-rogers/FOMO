@@ -27,8 +27,9 @@ main {
 }
 .forms{
     align: center;
-    padding-left: 40px;
-    width: 40%;
+    padding-left: 15%;
+    padding-right: 15%;
+    width: 60%;
 }
 
 .header{

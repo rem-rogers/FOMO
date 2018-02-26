@@ -24,8 +24,10 @@
                     <td>${p.TITLE}</td>
                     <td>${p.name}</td>
                     <td>${p.price}</td>
+                    # %if hasattr(p, 'quantity', 1):
                     %if TITLE == 'Bulk Product':
                         <td>${p.quantity}</td>
+
                     %else:
                         <td>1</td>
                     %endif
