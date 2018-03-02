@@ -3,7 +3,7 @@
 <%block name='content_top'>
 
       <h1 class="display-3">Product List</h1>
-      <p class="lead">Current products are listed below. You may choose to edit or delete these products using the approriate link in the table</p><br>
+      <p class="lead">Current products are listed below. You may choose to edit or delete these products using the appropriate link in the table</p><br>
 
 
     <table class="table table-hover">
@@ -32,7 +32,7 @@
                         <td>1</td>
                     %endif
                     <td>
-                        <a href="/manager/editProduct/${p.id}">Edit</a>
+                        <a href="/manager/editProduct/${p.id}">Edit</a> |
                         <a href="/manager/deleteProduct/${p.id}">Delete</a>
                     </td>
                 </tr>

@@ -1,13 +1,42 @@
 <%inherit file="app_base.htm" />
 
 <%block name="content_top">
-    <div class="jumbotron">
-  <h1 class="display-3">Play the Moment</h1>
-  <p class="lead">Welcome to FOMO</p>
-  <hr class="my-4">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="jumbotron text-center">
+         <h1 class="display-3">FOMO</h1>
+            <button type="button" class="btn btn-warning center-block">Shop Now</button>
+    </div>
+##     <div class=“mainHeader”>
+##        <img class=“img-responsive” id=“headerImage” src=“${ STATIC_URL }homepage/media/images/jumbotron.jpg” alt=“picture of a concert stage”/>
+##        <div class=“centered”>
+##            <h1 id=“header-text”>FOMO Inc.</h1>
+##            <p class=“lead” id=“header-subtext”>Music is Life</p>
+##            <a href=“/contact/“><button class=“btn btn-primary btn-lg”>Contact Us</button></a>
+##        </div>
+##    </div>
+</%block>
 
-</div>
+<%block name="left_section">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Buy Bulk</div>
+            <div class="card-body">
+                 <h4 class="card-title">FOMO Bulk</h4>
+                <p class="card-text">FOMO features a wide selection of bulk products for purchase</p>
+             </div>
+    </div>
+    <div class="card border-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Rentals</div>
+        <div class="card-body">
+            <h4 class="card-title">FOMO Rentals</h4>
+            <p class="card-text">Find the right instrument for you with the flexibility and convenience of renting.</p>
+        </div>
+    </div>
+    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="card-header">Individual Purchase</div>
+      <div class="card-body">
+        <h4 class="card-title">Buy FOMO</h4>
+        <p class="card-text">Find the right equipment, instrument, accessories and more for your specific needs</p>
+      </div>
+    </div>
 </%block>
 
 
