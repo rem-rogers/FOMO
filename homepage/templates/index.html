@@ -1,18 +1,19 @@
 <%inherit file="app_base.htm" />
 
 <%block name="content_top">
-    <div class="jumbotron text-center">
+##     <div class="container">
+##         <img src=${ STATIC_URL }homepage/media/images/jumbotron.jpg alt="concert" width="100%;">
+##         <div class="centered">
+##             <h1>FOMO</h1>
+##         </div>
+##
+##     </div>
+    <div class="jumbotron text-center jumbo">
+
          <h1 class="display-3">FOMO</h1>
             <button type="button" class="btn btn-warning center-block">Shop Now</button>
     </div>
-##     <div class=“mainHeader”>
-##        <img class=“img-responsive” id=“headerImage” src=“${ STATIC_URL }homepage/media/images/jumbotron.jpg” alt=“picture of a concert stage”/>
-##        <div class=“centered”>
-##            <h1 id=“header-text”>FOMO Inc.</h1>
-##            <p class=“lead” id=“header-subtext”>Music is Life</p>
-##            <a href=“/contact/“><button class=“btn btn-primary btn-lg”>Contact Us</button></a>
-##        </div>
-##    </div>
+
 </%block>
 
 <%block name="left_section">
@@ -36,6 +37,12 @@
         <h4 class="card-title">Buy FOMO</h4>
         <p class="card-text">Find the right equipment, instrument, accessories and more for your specific needs</p>
       </div>
+    </div>
+</%block>
+
+<%block name="middle_section">
+    <div class="jumbo">
+        <img src=${ STATIC_URL }homepage/media/images/jumbotron.jpg alt="concert">
     </div>
 </%block>
 

@@ -37,6 +37,11 @@
     height: 300px;
 }
 
+.jumbo{
+    max-height: 100%;
+    max-width: 100%;
+}
+
 .left_section
 {
     position: absolute;
@@ -45,6 +50,7 @@
     width: 300px;
     background-color: #2f6473;
     height: 300px;
+
 
 }
 
