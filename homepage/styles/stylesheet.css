@@ -24,7 +24,7 @@
     top: 0;
     right: 0;
     height: 300px;
-    width: 300px;
+    width: 150px;
     background-color: #2aaacf;
 
 }
@@ -32,7 +32,7 @@
 .middle_section
 {
     margin-left: 300px;
-    margin-right: 300px;
+    margin-right: 150px;
     background-color: #2b542c;
     height: 300px;
 }
@@ -50,8 +50,6 @@
     width: 300px;
     background-color: #2f6473;
     height: 300px;
-
-
 }
 
 .bottom_section
