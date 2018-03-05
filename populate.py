@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 # set up django first
-import os, os.path
+import os, os.path, sys
 import django
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "s0.settings")
 django.setup()
 

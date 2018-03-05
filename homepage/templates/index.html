@@ -1,48 +1,55 @@
 <%inherit file="app_base.htm" />
 
 <%block name="content_top">
-##     <div class="container">
-##         <img src=${ STATIC_URL }homepage/media/images/jumbotron.jpg alt="concert" width="100%;">
-##         <div class="centered">
-##             <h1>FOMO</h1>
-##         </div>
+##         <div class="container">
+##             <img src=${ STATIC_URL }homepage/media/images/jumbotron.jpg alt="concert" width="100%;">
+##             <div class="centered">
+##                 <h1>FOMO</h1>
+##             </div>
 ##
-##     </div>
+##         </div>
     <div class="jumbotron text-center jumbo">
 
          <h1 class="display-3">FOMO</h1>
             <button type="button" class="btn btn-warning center-block">Shop Now</button>
     </div>
 
-</%block>
-
-<%block name="left_section">
-    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Buy Bulk</div>
-            <div class="card-body">
-                 <h4 class="card-title">FOMO Bulk</h4>
-                <p class="card-text">FOMO features a wide selection of bulk products for purchase</p>
-             </div>
-    </div>
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Rentals</div>
-        <div class="card-body">
-            <h4 class="card-title">FOMO Rentals</h4>
-            <p class="card-text">Find the right instrument for you with the flexibility and convenience of renting.</p>
+    <div class="container"></div>
+<div class="row">
+        <div class="col-md-4" style="padding-left: 50px;">
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Buy Bulk</div>
+                    <div class="card-body">
+                         <h4 class="card-title">FOMO Bulk</h4>
+                        <p class="card-text">FOMO features a wide selection of bulk products for purchase</p>
+                     </div>
+            </div>
+            <div class="card border-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Rentals</div>
+                <div class="card-body">
+                    <h4 class="card-title">FOMO Rentals</h4>
+                    <p class="card-text">Find the right instrument for you with the flexibility and convenience of renting.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+              <div class="card-header">Individual Purchase</div>
+              <div class="card-body">
+                <h4 class="card-title">Buy FOMO</h4>
+                <p class="card-text">Find the right equipment, instrument, accessories and more for your specific needs</p>
+              </div>
+            </div>
         </div>
+
+    <div class="col-lg-8 jumbo">
+        <img class="img-responsive" src=${ STATIC_URL }homepage/media/images/jumbo.jpg alt="concert">
     </div>
-    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
-      <div class="card-header">Individual Purchase</div>
-      <div class="card-body">
-        <h4 class="card-title">Buy FOMO</h4>
-        <p class="card-text">Find the right equipment, instrument, accessories and more for your specific needs</p>
-      </div>
     </div>
+    </div>
+
 </%block>
 
 <%block name="middle_section">
     <div class="jumbo">
-        <img src=${ STATIC_URL }homepage/media/images/jumbo.jpg alt="concert">
     </div>
 </%block>
 

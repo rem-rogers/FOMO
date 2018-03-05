@@ -51,3 +51,9 @@ class RentalProduct(Product):
     pid = models.TextField()
     max_rental_days = models.IntegerField(default=0)
     retire_date = models.DateField(null=True, blank=True)
+
+class ProductImage(models.Model):
+    create_date = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    filename = models.TextField()
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
