@@ -48,15 +48,15 @@ class Product(PolymorphicModel):
     def image_urls(self):
         root = "catalog/media/products/"
         li = []
-        if len(self.images.all() > 0):
+        if len(self.images.all()) > 0:
             for im in self.images.all():
-                url = settings.STATIC_URL + root + self.images.all()[im].filename
+                url = settings.STATIC_URL + root + im.filename
                 li.append(url)
-                return li
-            else:
-                url= settings.STATIC_URL + root + ProductImage.objects.get(filename="image_unavailable.gif")
-                li.append(url)
-                return li
+            return li
+        else:
+            url= settings.STATIC_URL + "catalog/media/products/image_unavailable.gif"
+            li.append(url)
+            return li
 
 
 

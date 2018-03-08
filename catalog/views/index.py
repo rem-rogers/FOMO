@@ -5,14 +5,14 @@ from catalog import models as cmod
 
 @view_function
 def process_request(request, cat_id):
+    category = cat_id
     cat = cmod.Category.objects.all()
-
     context = {
         'cat': cat,
-        jscontext('categroy'): cat_id,
+        jscontext('category'): category,
+        jscontext('pnum'): 1,
     }
     return request.dmp.render('index.html', context)
-
 
 @view_function
 def products(request, cat: cmod.Category=None, pnum: int=1):
