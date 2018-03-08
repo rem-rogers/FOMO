@@ -3,6 +3,9 @@ from polymorphic.models import PolymorphicModel
 
 
 # Create your models here.
+from s0 import settings
+
+
 class Category(models.Model):
     """Category for products"""
     create_date = models.DateTimeField(auto_now_add=True)
@@ -33,6 +36,30 @@ class Product(PolymorphicModel):
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
+    def image_url(self):
+        root = "catalog/media/products/"
+        if len(self.images.all()) > 0:
+            url = settings.STATIC_URL + root + self.images.all()[0].filename
+            return url
+        else:
+            url = settings.STATIC_URL + root + "image_unavailable.gif"
+            return url
+
+    def image_urls(self):
+        root = "catalog/media/products/"
+        li = []
+        if len(self.images.all() > 0):
+            for im in self.images.all():
+                url = settings.STATIC_URL + root + self.images.all()[im].filename
+                li.append(url)
+                return li
+            else:
+                url= settings.STATIC_URL + root + ProductImage.objects.get(filename="image_unavailable.gif")
+                li.append(url)
+                return li
+
+
+
 
 class BulkProduct(Product):
     TITLE = 'Bulk Product'
@@ -57,3 +84,6 @@ class ProductImage(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
     filename = models.TextField()
     product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
+
+
+
