@@ -1,12 +1,21 @@
-<%inherit file=base_ajax.htm />
+ <%inherit file="base_ajax.htm" />
 
-
-    <ul id="categories">
-        <%block name="content">
-        % for p in prod:
-            <li class="product_tile">
-                <img src="${ p.image_url() }">
-            </li>
-        % endfor
-        </%block>
+ <%block name="content">
+##     <h1 class="text-center">
+##         %if gory == 'All Products':
+##             All Products
+##         %else:
+##             ${gory.name}
+##         %endif
+##     </h1>
+    <ul class="noBullets">
+    %for prod in qry:
+        <li class="product_tile">
+                <h4 class="text-center">${prod.name}</h4>
+                    <p class="text-right">$${prod.price}</p>
+                <img src="${prod.image_url()}" class="img-fluid"/>
+        </li>
+    %endfor
     </ul>
+</%block>
+

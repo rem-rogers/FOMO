@@ -5,22 +5,23 @@
     <h1>Products And Categories</h1><br><br>
     <div class="container">
         <div class="row">
-            <div class="col-2">
-                <h1 class="text-primary">${ 'Products' if cat is None else ' '}</h1> <br>
+            <div class="col-1">
                 <ul id="categories">
-                    <li><a href="/catalog/index/">All Products</a></li>
+                    <li class="${ 'activeCat' if category is None else ''}"><a href="/catalog/index/">All Products</a></li>
                     % for c in cat:
-                        <li><a href="/catalog/index.products/${c.id}">${ c.name }</a></li>
+                        <li class="${ 'activeCat' if category is None else '' }"><a href="/catalog/index/${c.id}/">${ c.name }</a></li>
                     % endfor
                 </ul>
             </div>
-            <div class="col-8" id="products">
+            <div class="col-9" id="products">
+                <div id="catalog">
+                    
+                </div>
+            </div>
+            <div class="col-2">
                 <div id="paginator" class = text-right>
                     <a id="previous_page"><i class="fas fa-arrow-left"></i></a>
                     <a id="next_page"><i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div id="catalog_container">
-                    <div id="catalog"></div>
                 </div>
             </div>
         </div>
