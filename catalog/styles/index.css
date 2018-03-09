@@ -33,3 +33,7 @@ h4.utc-time {
     min-height: 100px;
     height: 100%;
 }
+
+#previous_page, #next_page {
+    cursor: pointer;
+}

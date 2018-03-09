@@ -22,14 +22,14 @@ def process_request(request, cat_id=0, pNum=1):
         jscontext('category'): category,
         jscontext('pNum'): pNum,
         jscontext('pMax'): page,
-        'page': page,
         'currentPage': currentPage,
     }
     return request.dmp.render('index.html', context)
 
 @view_function
-def products(request, cat: cmod.Category=None, pnum: int=1):
+def products(request, cat: cmod.Category=None, pNum: int=1):
     # qry = cmod.Product.objects.all()
+
     if cat is not None:
         qry = cmod.Product.objects.filter(category_id=cat.id)
         cName = cat
@@ -37,11 +37,10 @@ def products(request, cat: cmod.Category=None, pnum: int=1):
         qry = cmod.Product.objects.all()
         cName = 'All Products'
 
-    qry = qry[((pnum - 1)*6):6*pnum] #pagination
+    qry = qry[((pNum - 1)*6):6*pNum] #pagination
 
     context = {
         'qry': qry,
-        'pnum': pnum,
         'cName': cName,
     }
     return request.dmp.render('index.products.html', context) #inherits from base_ajax

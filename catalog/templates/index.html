@@ -20,9 +20,16 @@
             </div>
             <div class="col-2">
                 <div id="paginator" class = text-right>
-                    <a id="previous_page"><i class="fas fa-arrow-left"></i></a>
-                        <a>Page ${  } of ${ page }</a>
-                    <a id="next_page"><i class="fas fa-arrow-right"></i></a>
+                    %if int(pNum) >= 1:
+                        <span id="previous_page"><i class="fas fa-arrow-left"></i></span>
+                    %endif
+
+                        <a>Page <span id="currentPage">${ pNum }</span>  of ${ pMax}</a>
+
+                    %if int(pNum) < pMax:
+                        <span id="next_page"><i class="fas fa-arrow-right"></i></span>
+
+                    %endif
                 </div>
             </div>
         </div>
