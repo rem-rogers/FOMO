@@ -6,6 +6,12 @@ h4.utc-time {
     list-style: none;
 }
 
+.categories{
+    position: absolute;
+    left: 0;
+    padding-left: 60px;
+}
+
 #product_list{
     list-style: none;
     padding: 0;
@@ -14,7 +20,8 @@ h4.utc-time {
 
 .activeCat{
     font-weight: bolder;
-    color: #7c312f;
+    font-size: 25px;
+    text-decoration: underline;
 }
 
 .noBullets{

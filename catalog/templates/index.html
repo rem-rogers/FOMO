@@ -2,12 +2,12 @@
 
 
 <%block name="content_top">
-    <h1>Products And Categories</h1><br><br>
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-2 categories text-left">
+                <h3>Categories</h3><br>
                 <ul id="categories">
-                    <li class="${ 'activeCat' if category is None else ''}"><a href="/catalog/index/">All Products</a></li>
+                    <li class="${ 'activeCat' if category is None else ' ' }"><a href="/catalog/index/">All Products</a></li>
                     % for c in cat:
                         <li class="${ 'activeCat' if category is None else '' }"><a href="/catalog/index/${c.id}/">${ c.name }</a></li>
                     % endfor
