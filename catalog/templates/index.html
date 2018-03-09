@@ -5,7 +5,7 @@
     <h1>Products And Categories</h1><br><br>
     <div class="container">
         <div class="row">
-            <div class="col-1">
+            <div class="col-2">
                 <ul id="categories">
                     <li class="${ 'activeCat' if category is None else ''}"><a href="/catalog/index/">All Products</a></li>
                     % for c in cat:
@@ -13,7 +13,7 @@
                     % endfor
                 </ul>
             </div>
-            <div class="col-9" id="products">
+            <div class="col-8" id="products">
                 <div id="catalog">
                     
                 </div>
@@ -21,6 +21,7 @@
             <div class="col-2">
                 <div id="paginator" class = text-right>
                     <a id="previous_page"><i class="fas fa-arrow-left"></i></a>
+                        <a>Page ${  } of ${ page }</a>
                     <a id="next_page"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
