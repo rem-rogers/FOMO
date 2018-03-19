@@ -52,3 +52,13 @@
   </nav>
 </%block>
 
+<%block name="left_section">
+    <h3>Categories</h3><br>
+        <ul id="categories">
+            <li class="${ 'activeCat' if category is None else ' ' }"><a href="/catalog/index/">All Products</a></li>
+            % for c in cat:
+                <li class="${ 'activeCat' if category is None else '' }"><a href="/catalog/index/${c.id}/">${ c.name }</a></li>
+            % endfor
+        </ul>
+</%block>
+

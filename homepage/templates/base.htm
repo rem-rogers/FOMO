@@ -33,24 +33,29 @@
 <br>
 
     <main>
-
-        <%block name="content_top"> </%block>
+        <div class="top_section">
+            <%block name="content_top"></%block>
+        </div>
 
         <div class="section">
             <div id="content"></div>
 
-            <%block name="left_section">
-            </%block>
-            <%block name="middle_section">
-            </%block>
-            <%block name="right_section">
-            </%block>
+            <div class="left_section">
+                <%block name="left_section"></%block>
+            </div>
 
+            <div class="middle_section">
+                <%block name="middle_section"></%block>
+            </div>
+
+            <div class="right_section">
+                <%block name="right_section"></%block>
+            </div>
         </div>
 
-        <%block name="bottom_section">
-
-        </%block>
+        <div class="bottom_section">
+            <%block name="bottom_section"></%block>
+        </div>
 
     </main>
     </body>

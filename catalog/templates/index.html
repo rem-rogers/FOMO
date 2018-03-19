@@ -1,18 +1,18 @@
 <%inherit file="app_base.htm" />
 
-
-<%block name="content_top">
+<%block name="content_top"></%block>
+<%block name="middle_section">
     <div class="container">
         <div class="row">
-            <div class="col-2 categories text-left">
-                <h3>Categories</h3><br>
-                <ul id="categories">
-                    <li class="${ 'activeCat' if category is None else ' ' }"><a href="/catalog/index/">All Products</a></li>
-                    % for c in cat:
-                        <li class="${ 'activeCat' if category is None else '' }"><a href="/catalog/index/${c.id}/">${ c.name }</a></li>
-                    % endfor
-                </ul>
-            </div>
+##             <div class="col-2 categories text-left">
+##                 <h3>Categories</h3><br>
+##                 <ul id="categories">
+##                     <li class="${ 'activeCat' if category is None else ' ' }"><a href="/catalog/index/">All Products</a></li>
+##                     % for c in cat:
+##                         <li class="${ 'activeCat' if category is None else '' }"><a href="/catalog/index/${c.id}/">${ c.name }</a></li>
+##                     % endfor
+##                 </ul>
+##             </div>
             <div class="col-8" id="products">
                 <div id="catalog">
                     

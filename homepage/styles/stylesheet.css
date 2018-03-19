@@ -8,9 +8,15 @@
 
 .top_section
 {
-    background-color: #2e6da4;
-    min-height: 150px;
+    min-height: 50px;
     width:100%;
+    padding-bottom: 0;
+}
+
+/*this is for the sections page*/
+.topSection{
+    background-color: #2e6da4;
+    height: 200px;
 }
 
 .section
@@ -25,16 +31,25 @@
     right: 0;
     height: 300px;
     width: 150px;
-    background-color: #2aaacf;
+}
 
+/*this is for the sections page*/
+.rightSection{
+    background-color: #2aaacf;
+    height: 100%;
 }
 
 .middle_section
 {
     margin-left: 300px;
     margin-right: 150px;
-    background-color: #2b542c;
     height: 300px;
+}
+
+/*this is for the sections page*/
+.middleSection{
+    background-color: #2b542c;
+    height: 100%;
 }
 
 .jumbo{
@@ -48,15 +63,25 @@
     top: 0;
     left: 0;
     width: 300px;
-    background-color: #2f6473;
     height: 300px;
+}
+
+/*this is for the sections page*/
+.leftSection{
+    background-color: #2f6473;
+    height: 100%;
 }
 
 .bottom_section
 {
-    background-color: #3f4447;
     width: 100%;
     height: 150px;
+}
+
+/*this is for the sections page*/
+.bottomSection{
+    background-color: #3f4447;
+        height: 100%;
 }
 
 
