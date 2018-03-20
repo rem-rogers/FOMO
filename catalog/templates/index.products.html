@@ -11,14 +11,15 @@
     <h1 class="text-center">${ cName }</h1><br>
     <ul class="noBullets">
     %for prod in qry:
-        <a>
+
         <li class="product_tile text-center">
+            <a href="/catalog/detail/${prod.id}/">
             <h4 class="text-center">${prod.name}</h4>
             <img src="${prod.image_url()}" class="img-fluid"/>
-            <button class="btn btn-warning center-block">$${prod.price}</button>
-
+            <button class="btn btn-warning center-block">${prod.price}</button>
+            </a>
         </li>
-        </a>
+
     %endfor
     </ul>
 </%block>

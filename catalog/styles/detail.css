@@ -1,0 +1,41 @@
+.imgThumbs{
+    display: inline-block;
+    margin: 12px 18px;
+    padding: 12px;
+    border: 2px solid #cccccc;
+    border-radius: 4px;
+    width: 90px;
+    vertical-align: top;
+    min-height: 100px;
+    height: 100%;
+}
+
+.imgList{
+    list-style: none;
+}
+
+#imgList{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 200px;
+    float: left;
+}
+
+#mainImage{
+    float: left;
+    padding: 30px;
+}
+
+.productInfo{
+
+
+}
+
+.prodName{
+
+}
+
+.prodDescription{
+
+}

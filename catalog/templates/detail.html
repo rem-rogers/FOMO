@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<%inherit file="app_base.htm" />
 
-</body>
-</html>
+<%block name="middle_section">
+    <div id="imgList">
+        <ul>
+        %for i in img:
+            <li class="imgList">
+                <img onmouseover="bigImg(this)" src="${i}" class="imgThumbs">
+            </li>
+        %endfor
+        </ul>
+    </div>
+    <div class="productInfo">
+    <img id="mainImage" src="${i}" class="">
+
+    <h1 class="prodName">${prod.name}</h1>
+    <p class="prodDescription">${prod.description}</p>
+    %if prod.TITLE== 'Bulk Product':
+        <div class="form-group">
+            <label class="col-form-label" for="inputDefault">${prod.quantity}</label>
+            <input class="form-control" placeholder="Default input" id="inputDefault" type="text">
+        </div>
+    %endif
+    </div>
+</%block>

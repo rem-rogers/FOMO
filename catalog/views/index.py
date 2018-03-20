@@ -1,5 +1,4 @@
 from django_mako_plus import view_function, jscontext
-from datetime import datetime
 from catalog import models as cmod
 import math
 
