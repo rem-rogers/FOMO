@@ -1,4 +1,5 @@
 <%inherit file="/homepage/templates/base.htm" />
+<! from catalog import mdoels as cmod %>
 
 <%block name="menu">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -62,3 +63,12 @@
         </ul>
 </%block>
 
+<%block name="right_section">
+    <h2 id="last_five_title">Recently Viewed:</h2>
+    <ol>
+        %for products in request.last_five[1:6]:
+            <li></li>
+        %endfor
+    </ol>
+
+</%block>

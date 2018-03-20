@@ -35,3 +35,10 @@ main {
 .header{
     padding: 40px;
 }
+
+#footer{
+    position: absolute;
+    min-height: 60px;
+    bottom: 0px;
+    width: 100%;
+}
