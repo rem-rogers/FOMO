@@ -1,9 +1,11 @@
-<%inherit file="app_base.htm" />
+<%inherit file="manager/templates/app_base.htm" />
 
 <%block name='content_top'>
 
       <h1 class="display-3">Product List</h1>
       <p class="lead">Current products are listed below. You may choose to edit or delete these products using the appropriate link in the table</p><br>
+      <a href="/manager/createProduct"><button type="button" class="btn btn-success" >Create Product</button></a>
+
 
 
     <table class="table table-hover">
@@ -39,9 +41,7 @@
             %endfor
          </tbody>
     </table><br><hr class="my-4">
-    <div >
-        <a href="/manager/createProduct"><button type="button" class="btn btn-secondary" >Create Product</button></a>
-    </div>
+
 
 </%block>
 
