@@ -63,12 +63,24 @@
         </ul>
 </%block>
 
-## <%block name="right_section">
-##     <h2 id="last_five_title">Recently Viewed:</h2>
-##     <ol>
-##         %for products in request.last_five[1:6]:
-##             <li></li>
-##         %endfor
-##     </ol>
-##
-## </%block>
+<%block name="right_section">
+    <div class="right">
+        <h2 class="text-center">Recently Viewed</h2>
+    <%
+    if request.dmp.page == 'detail':
+        recent = request.last_five[1:6]
+    else:
+        recent = request.last_five[0:5]
+    %>
+    <ol id="recent_view">
+        %for p in recent:
+            <li class="recent_list">
+                <a href="/catalog/detail/${p.id}/">
+                    <img src="${p.image_url()}" class="img-fluid" />
+                    <p class="text-center">${p.name}</p>
+                </a>
+            </li>
+        %endfor
+    </ol>
+    </div>
+</%block>

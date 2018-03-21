@@ -18,6 +18,11 @@ h4.utc-time {
     margin: 0;
 }
 
+.Flexcontainer{
+    display: flex;
+    width: 920px;
+}
+
 .activeCat{
     font-weight: bolder;
     font-size: 25px;
@@ -29,15 +34,19 @@ h4.utc-time {
     display: inline-block;
 }
 
+#products{
+    width: 800px;
+}
+
 .product_tile{
     display: inline-block;
     margin: 12px 18px;
     padding: 12px;
     border: 2px solid #cccccc;
     border-radius: 4px;
-    width: 300px;
+    width: 200px;
     vertical-align: top;
-    min-height: 100px;
+    min-height: 80px;
     height: 100%;
 }
 

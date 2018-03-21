@@ -2,8 +2,7 @@
 
 <%block name="content_top"></%block>
 <%block name="middle_section">
-    <div class="container">
-        <div class="row">
+    <div class="Flexcontainer">
 ##             <div class="col-2 categories text-left">
 ##                 <h3>Categories</h3><br>
 ##                 <ul id="categories">
@@ -13,12 +12,11 @@
 ##                     % endfor
 ##                 </ul>
 ##             </div>
-            <div class="col-8" id="products">
+            <div id="products">
                 <div id="catalog">
                     
                 </div>
             </div>
-            <div class="col-2">
                 <div id="paginator" class = text-right>
                     %if int(pNum) >= 1:
                         <span id="previous_page"><i class="fas fa-arrow-left"></i></span>
@@ -31,8 +29,6 @@
 
                     %endif
                 </div>
-            </div>
-        </div>
     </div>
 
 </%block>

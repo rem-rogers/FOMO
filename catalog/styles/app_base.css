@@ -1,3 +1,22 @@
 .activeCat{
     font-weight: bolder;
 }
+
+.recent_list{
+    display: inline-block;
+    margin: 12px 18px;
+    padding: 12px;
+    padding-right: 20px;
+    border: 2px solid #cccccc;
+    border-radius: 4px;
+    width: 90px;
+    vertical-align: top;
+    min-height: 100px;
+    height: 100%;
+    list-style: none;
+}
+
+.right{
+    padding-right: 30px;
+    padding-left: 10px;
+}

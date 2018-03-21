@@ -1,6 +1,8 @@
-function bigImg() {
-    var thumbSrc = document.getElementsByClassName("imgThumbs").src;
-    console.log(thumbSrc);
-}
+$(function(){
+    $('.imgThumbs').on('mouseenter', function() {
+        var thumbSrc = $('#mainImage');
+        thumbSrc[0].innerHTML = this.innerHTML;
+    });
+});
 
 

@@ -8,6 +8,9 @@ def process_request(request, prodid: cmod.Product, cat_id=0):
     img = prod.image_urls()
     category = cat_id
     cat = cmod.Category.objects.all()
+    if prod in request.last_five:
+        request.last_five.remove(prod)
+    request.last_five.insert(0, prod)
 
     context = {
         'prod': prod,
